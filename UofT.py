@@ -20,7 +20,7 @@ class UofT(object):
             "pause": "Pause",
             "continue": "Continue",
             "stop": "Stop Studying",
-            "break": "Time's up! Take a small break, you've earned it :)",
+            "break": "Time's up! Take a small break, you've earned it",
             "interval": 1500
         }
         self.app = rumps.App(self.config["app_name"])
@@ -46,7 +46,7 @@ class UofT(object):
         if mins == 0 and time_left < 0:
             rumps.notification(title=self.config["app_name"],
                                subtitle=self.config["break"], message='')
-            self.stop_timer()
+            self.stop_timer(sender)
             self.stop_button.set_callback(None)
         elif mins == 10 and secs == 0:
             rumps.notification(title=self.config["app_name"],
